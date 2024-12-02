@@ -14,8 +14,9 @@ std::string get_token(const char *filename) {
     return line;
 }
 
-int main() {
-    dpp::cluster bot(get_token(".ohptnlaurent"));
+int main(int argc, char **argv) {
+    (void)argc;
+    dpp::cluster bot(get_token(argv[1]));
 
     bot.on_slashcommand([](auto event) {
         if (event.command.get_command_name() == "ping") {
